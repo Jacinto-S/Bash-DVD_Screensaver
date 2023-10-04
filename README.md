@@ -16,3 +16,5 @@ To run the file in your terminal use:
 Planned:
 - Make this automatically run from bash after inactivity.
 - Add a config file with the tput lines and tput cols so users don't have to input it manually.
+
+![grafik](https://github.com/Jacinto-S/Bash-DVD_Screensaver/assets/122536229/df916010-0830-403a-a778-4f509b998e2e)
