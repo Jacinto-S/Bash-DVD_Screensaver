@@ -6,6 +6,9 @@ To run this properly, change the xmax and ymax values to your bash size. You can
 ymax = tput lines
 xmax = tput cols
 
+The screensaver will start automatically when executing the java file. 
+To stop the application and have your bash's text-colour reset, press enter.
+
 To run the file in your terminal use:
 "javac TextAnimation.java" to compile to bytecode at first use.
 "java TextAnimation" to run.
