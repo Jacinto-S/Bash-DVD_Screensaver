@@ -14,5 +14,5 @@ To run the file in your terminal use:
 "java TextAnimation" to run.
 
 Planned:
-- Make this automatically run from bash.
+- Make this automatically run from bash after inactivity.
 - Add a config file with the tput lines and tput cols so users don't have to input it manually.
