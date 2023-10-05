@@ -33,7 +33,6 @@ public class TextAnimation {
     try {
     while (System.in.available()==systemCount) {
       System.out.print("\033[2J");
-      System.out.print("\033[38;2;" + R + ";" + G + ";" + B + "m");
       System.out.print(DVD(xposleft));
       System.out.print(newLine.repeat(yposdown));
       doDelay(48);
@@ -75,6 +74,7 @@ public class TextAnimation {
     R = rand.nextInt(128) + 128;
     G = rand.nextInt(128) + 128;
     B = rand.nextInt(128) + 128;
+    System.out.print("\033[38;2;" + R + ";" + G + ";" + B + "m");
   }
 
   public static void doDelay(int delay) {
