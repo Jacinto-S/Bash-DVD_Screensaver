@@ -18,15 +18,12 @@ public class TextAnimation {
   public static String width = " ";
   public static String newLine = "\n";
   public static int systemCount = 0;
+  public static int delay = 48;
     public static void main(String[] args){
       Scanner scanner = new Scanner(System.in);
       TerminalDimensions.initializeTerminal();
       TerminalDimensions.setDimensions();
       moveIcon(2, 1);
-      //if (!TerminalDimensions.checkTerminalDimensions(xmax, ymax)) {
-      //  TerminalDimensions.setDimensions();
-      //  moveIcon(2, 1);
-      //}
   }
 
   public static void moveIcon(int xvelocity, int yvelocity) {
@@ -35,7 +32,7 @@ public class TextAnimation {
       System.out.print("\033[2J");
       System.out.print(DVD(xposleft));
       System.out.print(newLine.repeat(yposdown));
-      doDelay(48);
+      doDelay(delay);
 
       yposup += yvelocity;
       yposdown += yvelocity;
