@@ -11,7 +11,8 @@ Features:
 - Logo bouncing of corners
 - Logo changing color
 
-To run this, build it using Maven. The resulting .jar file can be run with java -jar filename
+To run this, build it using Maven (e.g. Lifecycle -> install in IntelliJ).
+The resulting .jar file can be run with java -jar filename
 
 Planned:
 - Make this automatically run from bash after inactivity.
