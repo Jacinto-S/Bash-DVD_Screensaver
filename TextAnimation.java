@@ -1,4 +1,6 @@
 import java.util.Random;
+import java.util.Scanner;
+
 import static java.lang.Math.abs;
 
 
@@ -6,8 +8,8 @@ public class TextAnimation {
   public static int R = 255;
   public static int G = 255;
   public static int B = 255;
-  public static int xmax = 170;
-  public static int ymax = 61;
+  public static int xmax = 80;
+  public static int ymax = 24;
   public static int yposup = 7;
   public static int yposdown = 0;
   public static int xposright = 30;
@@ -15,13 +17,21 @@ public class TextAnimation {
 
   public static String width = " ";
   public static String newLine = "\n";
+  public static int systemCount = 0;
     public static void main(String[] args){
+      Scanner scanner = new Scanner(System.in);
+      TerminalDimensions.initializeTerminal();
+      TerminalDimensions.setDimensions();
       moveIcon(2, 1);
+      //if (!TerminalDimensions.checkTerminalDimensions(xmax, ymax)) {
+      //  TerminalDimensions.setDimensions();
+      //  moveIcon(2, 1);
+      //}
   }
 
   public static void moveIcon(int xvelocity, int yvelocity) {
     try {
-    while (System.in.available()==0) {
+    while (System.in.available()==systemCount) {
       System.out.print("\033[2J");
       System.out.print("\033[38;2;" + R + ";" + G + ";" + B + "m");
       System.out.print(DVD(xposleft));
@@ -49,11 +59,15 @@ public class TextAnimation {
         yvelocity = -1 * abs(yvelocity);
         changeColor();
       }
+      if (!TerminalDimensions.checkTerminalDimensions(xmax, ymax)) {
+        TerminalDimensions.setDimensions();
+      }
     }
     } catch (Exception e) {
-      System.out.println("Error with end Program loop");
+      System.out.println("Error with end Program loop.");
     }
-    System.out.println("\033[0m");
+      systemCount++;
+      System.out.println("\033[0m");
   }
 
   public static void changeColor() {
@@ -83,15 +97,4 @@ public class TextAnimation {
       width.repeat(indent) + "⠉⠛⠻⠿⠿⠿⠷⣼⣿⣿⣼⣿⣧⣭⣼⣿⣧⣭⣿⣿⣬⡭⠾⠿⠿⠿⠛⠉⠀";
     return dvd;
   }
-  
-/*  private static String executeCommand(String command) {
-    try {
-	InputStream input = Runtime.getRuntime().exec(command).getInputStream();
-	BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-	return reader.readLine();
-    } catch (Exception e) {
-	e.printStackTrace();
-	return null;
-    }
-  }*/
 }
