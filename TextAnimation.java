@@ -29,8 +29,6 @@ public class TextAnimation {
   }
 
   public static void main(String[] args){
-      TerminalDimensions.initializeTerminal();
-      TerminalDimensions.setDimensions();
       TextAnimation dvd = new TextAnimation();
       dvd.moveIcon(2, 1);
   }

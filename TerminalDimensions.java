@@ -7,6 +7,12 @@ public class TerminalDimensions {
     int xmax;
     int ymax;
     private static Terminal terminal;
+
+    static {
+        TerminalDimensions.initializeTerminal();
+        TerminalDimensions.setDimensions();
+    }
+
     public TerminalDimensions (int xmax, int ymax) {
         this.xmax = xmax;
         this.ymax = ymax;
