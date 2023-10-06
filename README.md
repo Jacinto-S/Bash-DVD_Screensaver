@@ -2,19 +2,20 @@
 The traditional dvd screensaver but for bash.
 
 This is one of my first projects. Playing around with Ansii sequences, I wanted to make something that uses the color-changing features.
-To run this properly, change the xmax and ymax values to your bash size. You can get that value with tput:
-ymax = tput lines
-xmax = tput cols
 
 The screensaver will start automatically when executing the java file. 
 To stop the application and have your bash's text-colour reset, press enter.
 
-To run the file in your terminal use:
-"javac TextAnimation.java" to compile to bytecode at first use.
-"java TextAnimation" to run.
+Features:
+- Program Self-Adjusts when changing Window Size
+- Logo bouncing of corners
+- Logo changing color
+
+To run this, build it using Maven (e.g. Lifecycle -> install in IntelliJ).
+The resulting .jar file can be run with java -jar filename
 
 Planned:
 - Make this automatically run from bash after inactivity.
-- Add a config file with the tput lines and tput cols so users don't have to input it manually.
+- Settings
 
 ![grafik](https://github.com/Jacinto-S/Bash-DVD_Screensaver/assets/122536229/df916010-0830-403a-a778-4f509b998e2e)
