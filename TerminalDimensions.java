@@ -46,6 +46,10 @@ public class TerminalDimensions {
         TextAnimation.ymax = dimensions.ymax;
     }
 
+    public static void setVolcity(int xmax, int ymax) {
+        long aspectRatio = (long)xmax/(long)ymax;
+    }
+
     /**
      * For Debugging purposes
      */

@@ -1,36 +1,45 @@
 import java.util.Random;
-import java.util.Scanner;
 
 import static java.lang.Math.abs;
 
 
 public class TextAnimation {
-  public static int R = 255;
-  public static int G = 255;
-  public static int B = 255;
+  public int R;
+  public int G;
+  public int B;
+  public int yposup;
+  public int yposdown;
+  public int xposright;
+  public int xposleft;
   public static int xmax = 80;
   public static int ymax = 24;
-  public static int yposup = 7;
-  public static int yposdown = 0;
-  public static int xposright = 30;
-  public static int xposleft = 0;
-
   public static String width = " ";
   public static String newLine = "\n";
   public static int systemCount = 0;
   public static int delay = 48;
-    public static void main(String[] args){
-      Scanner scanner = new Scanner(System.in);
-      TerminalDimensions.initializeTerminal();
-      TerminalDimensions.setDimensions();
-      moveIcon(2, 1);
+
+  public TextAnimation() {
+    this.R = 255;
+    this.G = 255;
+    this.B = 255;
+    this.yposup = 7;
+    this.yposdown = 0;
+    this.xposright = 30;
+    this.xposleft = 0;
   }
 
-  public static void moveIcon(int xvelocity, int yvelocity) {
+  public static void main(String[] args){
+      TerminalDimensions.initializeTerminal();
+      TerminalDimensions.setDimensions();
+      TextAnimation dvd = new TextAnimation();
+      dvd.moveIcon(2, 1);
+  }
+
+  public void moveIcon(int xvelocity, int yvelocity) {
     try {
     while (System.in.available()==systemCount) {
       System.out.print("\033[2J");
-      System.out.print(DVD(xposleft));
+      System.out.print(DVD_Icon(xposleft));
       System.out.print(newLine.repeat(yposdown));
       doDelay(delay);
 
@@ -66,7 +75,7 @@ public class TextAnimation {
       System.out.println("\033[0m");
   }
 
-  public static void changeColor() {
+  public void changeColor() {
     Random rand = new Random();
     R = rand.nextInt(128) + 128;
     G = rand.nextInt(128) + 128;
@@ -82,8 +91,8 @@ public class TextAnimation {
       }
   }
 
-  public static String DVD (int indent){
-    String dvd = 
+  public String DVD_Icon(int indent){
+    return
       //source: https://www.twitchquotes.com/copypastas/4211
       width.repeat(indent) + "⠀⠀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⢀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣶⣦⡀\n" +
       width.repeat(indent) + "⠀⢠⣿⣿⡿⠀⠀⠈⢹⣿⣿⡿⣿⣿⣇⠀⣠⣿⣿⠟⣽⣿⣿⠇⠀⠀⢹⣿⣿⣿ \n" +
@@ -92,6 +101,5 @@ public class TextAnimation {
       width.repeat(indent) + "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣀⣸⣟⣁⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
       width.repeat(indent) + "⣠⣴⣶⣾⣿⣿⣻⡟⣻⣿⢻⣿⡟⣛⢻⣿⡟⣛⣿⡿⣛⣛⢻⣿⣿⣶⣦⣄⡀⠀\n" +
       width.repeat(indent) + "⠉⠛⠻⠿⠿⠿⠷⣼⣿⣿⣼⣿⣧⣭⣼⣿⣧⣭⣿⣿⣬⡭⠾⠿⠿⠿⠛⠉⠀";
-    return dvd;
   }
 }
