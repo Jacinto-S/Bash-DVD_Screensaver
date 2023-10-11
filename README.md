@@ -43,7 +43,6 @@ The screensaver will start automatically when executing the java file.
 
 
 # Planned
-- Make this automatically run from bash after inactivity.
 - Settings
 
 # Credit
