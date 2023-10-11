@@ -33,10 +33,15 @@ public class TextAnimation {
       dvd.moveIcon(2, 1);
   }
 
+  static {
+    TerminalDimensions.initializeTerminal();
+    TerminalDimensions.setDimensions();
+    System.out.println("\n".repeat(ymax-7));
+  }
+
   public void moveIcon(int xvelocity, int yvelocity) {
     try {
     while (System.in.available()==systemCount) {
-      System.out.print("\033[2J");
       System.out.print(DVD_Icon(xposleft));
       System.out.print(newLine.repeat(yposdown));
       doDelay(delay);
@@ -45,6 +50,8 @@ public class TextAnimation {
       yposdown += yvelocity;
       xposright += xvelocity;
       xposleft += xvelocity;
+
+      System.out.print("\033[2J");
 
       if (xposleft + xvelocity <= 0) {
         xvelocity = abs(xvelocity);
