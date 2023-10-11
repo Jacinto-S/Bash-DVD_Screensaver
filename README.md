@@ -5,7 +5,7 @@ The traditional DVD Screensaver but for bash.
 
 
 # Installation
-To run this, build it using Maven (e.g. Lifecycle -> install in IntelliJ).
+To run this, build it using Maven (e.g. Lifecycle -> Install in IntelliJ).
 The resulting .jar file can be run with java -jar filename.
 
 ### Dependencies
