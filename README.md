@@ -9,6 +9,7 @@ To run this, build it using Maven (e.g. Lifecycle -> Install in IntelliJ).
 The resulting .jar file can be run with java -jar filename.
 
 ### Dependencies
+- Linux as your OS
 - openjdk 20 or above (examplary Fedora installation: https://docs.fedoraproject.org/en-US/quick-docs/installing-java/)
 - maven 3.8 or above
 
