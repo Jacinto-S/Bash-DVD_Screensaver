@@ -16,6 +16,6 @@ The resulting .jar file can be run with java -jar filename
 
 Planned:
 - Make this automatically run from bash after inactivity.
-- Settings
+- Settings.Settings
 
 ![grafik](https://github.com/Jacinto-S/Bash-DVD_Screensaver/assets/122536229/df916010-0830-403a-a778-4f509b998e2e)

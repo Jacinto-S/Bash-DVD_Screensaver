@@ -1,4 +1,8 @@
+package Utililties;
+
 import java.util.Random;
+import Settings.Settings;
+import Utililties.TerminalDimensions;
 
 import static java.lang.Math.abs;
 
@@ -26,11 +30,6 @@ public class TextAnimation {
     this.yposdown = 0;
     this.xposright = 30;
     this.xposleft = 0;
-  }
-
-  public static void main(String[] args){
-      TextAnimation dvd = new TextAnimation();
-      dvd.moveIcon(2, 1);
   }
 
   static {

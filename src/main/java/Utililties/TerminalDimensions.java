@@ -1,3 +1,5 @@
+package Utililties;
+
 import org.jline.terminal.Terminal;
 import org.jline.terminal.TerminalBuilder;
 
