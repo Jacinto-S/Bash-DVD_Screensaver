@@ -34,6 +34,8 @@
                         <goals>
                             <goal>shade</goal>
                         </goals>
+                        <configuration>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
@@ -45,6 +47,7 @@
                     <archive>
                         <manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
                     </archive>
+                    <outputDirectory>${project.basedir}</outputDirectory>
                 </configuration>
             </plugin>
         </plugins>
