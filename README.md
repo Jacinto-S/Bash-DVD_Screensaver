@@ -1,4 +1,4 @@
-![image](https://github.com/Jacinto-S/Bash-DVD_Screensaver/assets/122536229/a36de062-446c-470c-b2b5-e38dc474bc42)
+![Demo Header](https://raw.githubusercontent.com/Jacinto-S/Bash-DVD_Screensaver/main/Feature%20showcase/demo.gif)
 
 # Bash-DVD_Screensaver
 The traditional DVD Screensaver but for bash.
@@ -32,19 +32,23 @@ In a tmux window, your terminal will now activate this after your specified amou
 ### Setup your terminal to automatically open as a tmux window
 Check your specific distributions' options for this. For example, on Fedora, you can set by setting your terminal via \<right-click> -> preferences -> <Profiles +> -> Command -> \<Check "Run a custom command instead of my shell"> -> \<Set Custom Command to: /usr/bin/tmux>
 
+# Features
+- Program Self-Adjusts when changing Window Size <br />
+<img src="https://raw.githubusercontent.com/Jacinto-S/Bash-DVD_Screensaver/main/Feature%20showcase/resize-showcase.gif" width="530" height="192"> <br />
+- Screensaver starts after inactivity in your bash (if set up) <br />
+<img src="https://github.com/Jacinto-S/Bash-DVD_Screensaver/blob/main/Feature%20showcase/autostart.gif" width="530" height="243"> <br />
+- Logo bouncing of corners <br />
+- Logo changing color
+
+
 # Usage
 The screensaver will start automatically when executing the java file. 
-**To stop the application and have your bash's text-colour reset, press enter.**
-
-# Features
-- Program Self-Adjusts when changing Window Size
-- Logo bouncing of corners
-- Logo changing color
-- Screensaver activating after inactivity in your bash (If activated)
+**To stop the application and have your bash's text-color reset, press enter.**
 
 
 # Planned
 - Settings
+- Build script
 
 # Credit
 DVD icon source: [https://www.twitchqoutes.com/copypaste/4211](https://www.twitchquotes.com/copypastas/4211)https://www.twitchquotes.com/copypastas/4211
