@@ -9,4 +9,6 @@ public class RGB {
         this.G = G;
         this.B = B;
     }
+
+
 }
