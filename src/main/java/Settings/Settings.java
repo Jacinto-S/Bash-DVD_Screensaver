@@ -124,6 +124,11 @@ public class Settings {
         return colorscheme;
     }
 
+    public int getMovementSpeed() {return movementSpeed;}
+    public int getXDirection() {return movementDirection[0];}
+    public int getYDirection() {return movementDirection[1];}
+    public boolean backgroundIsColored() {return colorBackground;}
+    public Colorscheme getColorscheme() {return colorscheme;}
 
     @Override
     public String toString() {
