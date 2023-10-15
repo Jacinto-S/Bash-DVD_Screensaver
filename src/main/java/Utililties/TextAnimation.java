@@ -2,6 +2,7 @@ package Utililties;
 
 import java.util.Random;
 import static java.lang.Math.abs;
+import Settings.Settings;
 
 /**
  * Creates and moves the DVD Icon
@@ -20,9 +21,10 @@ public class TextAnimation {
   public static String width = " ";
   public static String newLine = "\n";
   public static int systemCount = 0;
-  public static int delay = 48;
+  public int delay;
+  Settings settings;
 
-  public TextAnimation() {
+  public TextAnimation(Settings settings) {
     this.R = 255;
     this.G = 255;
     this.B = 255;
@@ -30,12 +32,18 @@ public class TextAnimation {
     this.yposdown = 0;
     this.xposright = 30;
     this.xposleft = 0;
+    this.settings = settings;
+    this.delay = settings.getMovementSpeed();
   }
 
   static {
     TerminalDimensions.initializeTerminal();
     TerminalDimensions.setDimensions();
     System.out.println("\n".repeat(ymax-7));
+  }
+
+  public void startMovement(){
+    moveIcon(settings.getXDirection(), settings.getYDirection());
   }
 
   public void moveIcon(int xvelocity, int yvelocity) {
@@ -73,7 +81,7 @@ public class TextAnimation {
       }
     }
     } catch (Exception e) {
-      System.out.println("Error with end Program loop.");
+      System.out.println("Error with end program loop.");
     }
       systemCount++;
       System.out.println("\033[0m");
