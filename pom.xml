@@ -35,7 +35,6 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
-                            <skip>true</skip>
                         </configuration>
                     </execution>
                 </executions>
@@ -45,6 +44,7 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.3.0</version>
                 <configuration>
+                    <skip>true</skip>
                     <archive>
                         <manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
                     </archive>
