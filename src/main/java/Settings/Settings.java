@@ -17,13 +17,11 @@ public class Settings {
     int[] movementDirection;
     Colorscheme colorscheme;
     boolean colorBackground;
-    String[] screenSavers;
 
     static {
         if (configFileIsMissing()) {
             int[] direction = {2,1};
-            String[] standardSaver = {"DVD-Screensaver"};
-            Settings preSettings = new Settings(48, direction, false, Colorscheme.BRIGHT, standardSaver);
+            Settings preSettings = new Settings(48, direction, false, Colorscheme.BRIGHT);
             createConfigFile();
             preSettings.addToConfigFile();
         }
@@ -32,13 +30,12 @@ public class Settings {
     public Settings() {
     }
 
-    public Settings(int movementSpeed, int movementDirection[],
-                    boolean colorBackground, Colorscheme colorscheme, String[] screenSavers) {
+    public Settings(int movementSpeed, int[] movementDirection,
+                    boolean colorBackground, Colorscheme colorscheme) {
         this.movementSpeed = movementSpeed;
         this.movementDirection = movementDirection;
         this.colorBackground = colorBackground;
         this.colorscheme = colorscheme;
-        this.screenSavers = screenSavers;
     }
 
     static boolean configFileIsMissing() {
@@ -63,22 +60,12 @@ public class Settings {
             initialContent.append("movementDirection:"+ translateForConversion(movementDirection)+"\n");
             initialContent.append("colorBackground:"+ colorBackground+"\n");
             initialContent.append("colorscheme:" + translateForConversion(colorscheme)+"\n");
-            initialContent.append("screenSavers:" + translateForConversion(screenSavers));
         } catch (IOException e) {
             Logger warning = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
             warning.severe("Error with writing in your Settings File. Please check writing permissions.");
             System.out.println("Closing Program...");
             System.exit(1);
         }
-    }
-
-    String translateForConversion(String[] screenSavers) {
-        StringBuilder listedScreensavers = new StringBuilder();
-        for (String screenSaver:screenSavers) {
-            listedScreensavers.append("- ").append(screenSaver).append(" \\\n");
-            // "- " makes screenSavers easily readable. '\' marks a line break in properties files.
-        }
-        return listedScreensavers.toString();
     }
 
     String translateForConversion(int[] settings) {
@@ -105,7 +92,6 @@ public class Settings {
         movementDirection = retranslateDirection(config.getProperty("movementDirection"));
         colorBackground = Boolean.parseBoolean(config.getProperty("colorBackground"));
         colorscheme = retranslateColorscheme(config.getProperty("colorscheme"));
-        screenSavers = retranslateScreensavers(config.getProperty("screenSavers"));
 
         } catch (IOException e) {
             CustomUtils.logErrorAndQuit("There was an error with reading your config file." +
@@ -133,25 +119,13 @@ public class Settings {
         return colorscheme;
     }
 
-    String[] retranslateScreensavers(String encoding) {
-        String[] temp = encoding.split("\n");
-        ArrayList<String> screensavers = new ArrayList<>();
-        for (String t:temp) {
-            if (t.contains("-")) {
-                screensavers.add(t.substring(t.indexOf('-')+2, t.length()-1));
-            }
-        }
-        return screensavers.toArray(new String[screensavers.size()-1]);
-    }
 
     @Override
     public String toString() {
         return "Movement Speed: " + movementSpeed + "\n" +
                "Movement Direction " + translateForConversion(movementDirection) + "\n" +
                "Background is set to: " + (colorBackground ? "colored" : "not colored") + "\n" +
-               "Colorscheme: " + colorscheme.toString() + "\n" +
-               "Selected Screensavers:\n" +
-               translateForConversion(screenSavers);
+               "Colorscheme: " + colorscheme.toString() + "\n";
     }
 
 }
