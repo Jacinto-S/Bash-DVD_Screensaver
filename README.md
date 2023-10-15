@@ -54,4 +54,4 @@ The screensaver will start automatically when executing the Java file.
 - Build script
 
 # Credit
-DVD icon source: [https://www.twitchqoutes.com/copypaste/4211](https://www.twitchquotes.com/copypastas/4211)
+DVD icon source: https://copypastatext.com/dvd-logo/
