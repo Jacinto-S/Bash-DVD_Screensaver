@@ -9,6 +9,11 @@ import java.util.Properties;
 import java.util.logging.Logger;
 import Utililties.CustomUtils;
 
+/**
+ * Creates a config file if not existent.
+ * Loads settings from config file and makes them available to the program.
+ */
+
 public class Settings {
     static String configDirectory = System.getProperty("user.home") + "/.config/bash-dvd-screensaver/";
     static String configFilePath = configDirectory + "config.properties";

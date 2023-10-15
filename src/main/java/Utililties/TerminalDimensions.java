@@ -2,8 +2,11 @@ package Utililties;
 
 import org.jline.terminal.Terminal;
 import org.jline.terminal.TerminalBuilder;
-
 import java.io.IOException;
+
+/**
+ * Utilities for getting the amount of characters available by the terminal.
+ */
 
 public class TerminalDimensions {
     int xmax;

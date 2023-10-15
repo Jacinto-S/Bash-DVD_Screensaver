@@ -1,5 +1,9 @@
 package Utililties;
 
+/**
+ * RGB Value generator
+ */
+
 public class RGB {
     int R;
     int G;

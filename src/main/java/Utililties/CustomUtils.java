@@ -2,9 +2,14 @@ package Utililties;
 
 import java.util.logging.Logger;
 
+/**
+ * Utility Methods for redundant tasks.
+ */
+
 public class CustomUtils {
     public CustomUtils() {
     }
+
     public static void logErrorAndQuit(String errorMessage) {
         Logger warning = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
         warning.severe(errorMessage);
