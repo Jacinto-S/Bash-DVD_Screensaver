@@ -9,15 +9,15 @@ import Settings.Settings;
  */
 
 public class TextAnimation {
-  public int yposup;
-  public int yposdown;
-  public int xposright;
-  public int xposleft;
-  public static int xmax = 80;
-  public static int ymax = 24;
-  public static String newLine = "\n";
-  public static int systemCount = 0;
-  public int delay;
+  int yposup;
+  int yposdown;
+  int xposright;
+  int xposleft;
+  static int xmax = 80;
+  static int ymax = 24;
+  static String newLine = "\n";
+  static int systemCount = 0;
+  int delay;
   Settings settings;
 
   public TextAnimation(Settings settings) {
@@ -36,7 +36,7 @@ public class TextAnimation {
   }
 
   public void startMovement(){
-    DVD_Icon icon = new DVD_Icon();
+    DVD_Icon icon = new DVD_Icon(settings);
     moveIcon(icon, settings.getXDirection(), settings.getYDirection());
   }
 
