@@ -9,25 +9,18 @@ import Settings.Settings;
  */
 
 public class TextAnimation {
-  public int R;
-  public int G;
-  public int B;
   public int yposup;
   public int yposdown;
   public int xposright;
   public int xposleft;
   public static int xmax = 80;
   public static int ymax = 24;
-  public static String width = " ";
   public static String newLine = "\n";
   public static int systemCount = 0;
   public int delay;
   Settings settings;
 
   public TextAnimation(Settings settings) {
-    this.R = 255;
-    this.G = 255;
-    this.B = 255;
     this.yposup = 7;
     this.yposdown = 0;
     this.xposright = 30;
@@ -43,13 +36,14 @@ public class TextAnimation {
   }
 
   public void startMovement(){
-    moveIcon(settings.getXDirection(), settings.getYDirection());
+    DVD_Icon icon = new DVD_Icon();
+    moveIcon(icon, settings.getXDirection(), settings.getYDirection());
   }
 
-  public void moveIcon(int xvelocity, int yvelocity) {
+  public void moveIcon(DVD_Icon icon, int xvelocity, int yvelocity) {
     try {
     while (System.in.available()==systemCount) {
-      System.out.print(DVD_Icon(xposleft));
+      System.out.print(icon.getIcon(xposleft));
       System.out.print(newLine.repeat(yposdown));
       doDelay(delay);
 
@@ -62,19 +56,19 @@ public class TextAnimation {
 
       if (xposleft + xvelocity <= 0) {
         xvelocity = abs(xvelocity);
-        changeColor();
+        icon.changeColor();
       }
       if (yposdown + yvelocity <= 0) {
         yvelocity = abs(yvelocity);
-        changeColor();
+        icon.changeColor();
       }
       if (xvelocity + xposright + 1> xmax) {
         xvelocity = -1 * abs(xvelocity);
-        changeColor();
+        icon.changeColor();
       }
       if (yvelocity + yposup > ymax) {
         yvelocity = -1 * abs(yvelocity);
-        changeColor();
+        icon.changeColor();
       }
       if (!TerminalDimensions.checkTerminalDimensions(xmax, ymax)) {
         TerminalDimensions.setDimensions();
@@ -87,13 +81,7 @@ public class TextAnimation {
       System.out.println("\033[0m");
   }
 
-  public void changeColor() {
-    Random rand = new Random();
-    R = rand.nextInt(128) + 128;
-    G = rand.nextInt(128) + 128;
-    B = rand.nextInt(128) + 128;
-    System.out.print("\033[38;2;" + R + ";" + G + ";" + B + "m");
-  }
+
 
   public static void doDelay(int delay) {
       try {
@@ -103,15 +91,5 @@ public class TextAnimation {
       }
   }
 
-  public String DVD_Icon(int indent){
-    return
-      //source: https://www.twitchquotes.com/copypastas/4211
-      width.repeat(indent) + "⠀⠀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⢀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣶⣦⡀\n" +
-      width.repeat(indent) + "⠀⢠⣿⣿⡿⠀⠀⠈⢹⣿⣿⡿⣿⣿⣇⠀⣠⣿⣿⠟⣽⣿⣿⠇⠀⠀⢹⣿⣿⣿ \n" +
-      width.repeat(indent) + "⠀⢸⣿⣿⡇⠀⢀⣠⣾⣿⡿⠃⢹⣿⣿⣶⣿⡿⠋⢰⣿⣿⡿⠀⠀⣠⣼⣿⣿⠏ \n" +
-      width.repeat(indent) + "⠀⣿⣿⣿⣿⣿⣿⠿⠟⠋⠁⠀⠀⢿⣿⣿⠏⠀⠀⢸⣿⣿⣿⣿⣿⡿⠟⠋⠁⠀\n" +
-      width.repeat(indent) + "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣀⣸⣟⣁⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
-      width.repeat(indent) + "⣠⣴⣶⣾⣿⣿⣻⡟⣻⣿⢻⣿⡟⣛⢻⣿⡟⣛⣿⡿⣛⣛⢻⣿⣿⣶⣦⣄⡀⠀\n" +
-      width.repeat(indent) + "⠉⠛⠻⠿⠿⠿⠷⣼⣿⣿⣼⣿⣧⣭⣼⣿⣧⣭⣿⣿⣬⡭⠾⠿⠿⠿⠛⠉⠀ ";
-  }
+
 }
