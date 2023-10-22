@@ -1,7 +1,7 @@
 package Utililties;
 
 import java.util.Random;
-import Settings.Settings;
+import Settings.*;
 
 /**
  * Constructs and returns the DVD Icon Ascii Art.
@@ -9,19 +9,18 @@ import Settings.Settings;
  */
 public class DVD_Icon {
     static String width = " ";
-    public int R;
-    public int G;
-    public int B;
+    public RGB rgb;
+    Colorscheme colorscheme;
     boolean backgroundIsColored;
     String resetColor = "\033[0m";
     String colorCode;
     int indent;
 
     public DVD_Icon(Settings settings) {
-        this.R = 255;
-        this.G = 255;
-        this.B = 255;
+        this.rgb = settings.getColorscheme().getRange();
         backgroundIsColored = settings.backgroundIsColored();
+        if (backgroundIsColored) resetColor = "\033[49m";
+        colorscheme = settings.getColorscheme();
     }
 
     public String getIcon(int indent){
@@ -29,9 +28,10 @@ public class DVD_Icon {
     }
 
     private String createIcon(int indent) {
-        colorCode = "\033[" + (backgroundIsColored ? "48" : "38") + ";2;" + R + ";" + G + ";" + B + "m";
+        colorCode = "\033[" + (backgroundIsColored ? "48" : "38") + ";2;" + rgb.R + ";" + rgb.G + ";" + rgb.B + "m";
         this.indent = indent;
         return //source: https://www.twitchquotes.com/copypastas/4211
+        resetColor +
         createIconLine("⠀⠀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⢀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣶⣦⡀") +
         createIconLine("⠀⢠⣿⣿⡿⠀⠀⠈⢹⣿⣿⡿⣿⣿⣇⠀⣠⣿⣿⠟⣽⣿⣿⠇⠀⠀⢹⣿⣿⣿") +
         createIconLine("⠀⢸⣿⣿⡇⠀⢀⣠⣾⣿⡿⠃⢹⣿⣿⣶⣿⡿⠋⢰⣿⣿⡿⠀⠀⣠⣼⣿⣿⠏") +
@@ -49,9 +49,6 @@ public class DVD_Icon {
     }
 
     public void changeColor() {
-        Random rand = new Random();
-        R = rand.nextInt(128) + 128;
-        G = rand.nextInt(128) + 128;
-        B = rand.nextInt(128) + 128;
+        rgb = colorscheme.getRange();
     }
 }

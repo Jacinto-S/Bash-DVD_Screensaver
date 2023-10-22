@@ -1,6 +1,7 @@
 package Utililties;
 
 import java.util.logging.Logger;
+import Settings.RGB;
 
 /**
  * Utility Methods for redundant tasks.
@@ -16,4 +17,5 @@ public class CustomUtils {
         System.out.println("Closing Program...");
         System.exit(1);
     }
+
 }

@@ -2,7 +2,7 @@ package Utililties;
 
 import java.util.Random;
 import static java.lang.Math.abs;
-import Settings.Settings;
+import Settings.*;
 
 /**
  * Creates and moves the DVD Icon
@@ -36,6 +36,11 @@ public class TextAnimation {
   }
 
   public void startMovement(){
+    if (settings.backgroundIsColored()) {   //set font color according to background color
+      String fontColor = "";
+      fontColor = "\033[" + (settings.getColorscheme()==Colorscheme.BRIGHT ? "30m" : "37m");
+      System.out.println(fontColor);
+    }
     DVD_Icon icon = new DVD_Icon(settings);
     moveIcon(icon, settings.getXDirection(), settings.getYDirection());
   }
@@ -79,6 +84,7 @@ public class TextAnimation {
     }
       systemCount++;
       System.out.println("\033[0m");
+      //System.out.println(icon.rgb);
   }
 
 
