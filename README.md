@@ -40,9 +40,35 @@ Check your specific distributions' options for this. On Fedora, for example, you
 <img src="https://raw.githubusercontent.com/Jacinto-S/Bash-DVD_Screensaver/main/Feature%20showcase/resize-showcase.gif" width="530" height="192"> <br />
 - Screensaver starts after inactivity in your bash (if set up) <br />
 <img src="https://github.com/Jacinto-S/Bash-DVD_Screensaver/blob/main/Feature%20showcase/autostart.gif" width="530" height="243"> <br />
+- Settings
 - Logo bouncing off of corners <br />
 - Logo changing color
 
+# Configuration
+The program will automatically create a configuration file on its first launch.
+You can use it to adjust movement speed & direction, set the colors to bright or dark only and have the background of the DVD Icon colored instead of the font color.
+
+Find the file at:
+```bash
+~/.config/bash-dvd-screensaver/config.properties
+```
+You now have the following options: <br /><br />
+**Movement Speed:** The lower this number is, the faster the icon will move.<br />
+```bash
+movementSpeed:48  
+```
+**Movement Direction:** (x/y) -> x is the horizontal, y the vertical direction for each movement.<br />
+```bash
+movementDirection:(2/1)
+```
+**Color Background:** true or false<br />
+```bash
+colorBackground:false
+```
+**Colorscheme:** 0 = bright, 1 = dark, 2 = random <br />
+```bash
+colorscheme:0
+```
 
 # Usage
 The screensaver will start automatically when executing the Java file. 
