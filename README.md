@@ -18,7 +18,7 @@ The resulting .jar file can be run with java -jar (filepath)
 
 ### Use it as a screensaver for your terminal
 You can run this like a screensaver using tmux.
-To do so, add the following config to your ~/.conf.tmux file:
+To do so, add the following config to your ~/.tmux.conf file:
 ```conf
 set-option -g lock-after-time 120 # duration before screensaver activates in seconds
 set-option -g lock-command "java -jar /home/me/programms/Bash-DVD_Screensaver.jar" # replace this with your path
